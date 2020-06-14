@@ -19,6 +19,7 @@ import java.util.List;
 @Service
 @Transactional
 public class PageService {
+
     @Autowired
     private PageRepository pageRepository;
 
@@ -43,6 +44,7 @@ public class PageService {
     public Page getPageByUrl(String url){
         return pageRepository.findByUrl(url);
     }
+
 
     public List<Page> getPageByHostname(String hostname){
         return pageRepository.findByHostname(hostname);
@@ -74,13 +76,11 @@ public class PageService {
 
 
     public List<ResponseHighPv>  getHighCityPV(){
-        List<ResponseHighPv> pages = pageRepository.findByHighCity();
-        return pages;
+        return pageRepository.findByHighCity();
     }
 
 
     public List<ResponseHighDevice>  getHighDevice(){
-        List<ResponseHighDevice> pages = pageRepository.findByHighDevice();
-        return pages;
+        return pageRepository.findByHighDevice();
     }
 }
